@@ -52,9 +52,9 @@ const Home = () => {
           </h2>
 
           {/* Location */}
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="flex items-center justify-center gap-2 mb-8 group cursor-default">
             <svg
-              className="w-5 h-5 text-orange-400"
+              className="w-5 h-5 text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:text-orange-300 group-hover:drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ const Home = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <span className="text-sm md:text-base bg-gradient-to-r bg-clip-text text-transparent from-orange-400 to-amber-500">
+            <span className="text-sm md:text-base font-bold bg-gradient-to-r bg-clip-text text-transparent from-orange-400 to-amber-500 transition-all duration-300 group-hover:from-orange-300 group-hover:to-amber-400 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(251,146,60,0.4)]">
               Baguio City, Philippines
             </span>
           </div>
