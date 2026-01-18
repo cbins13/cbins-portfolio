@@ -1,15 +1,24 @@
 import React from "react";
 import RevealOnScroll from "../RevealOnScroll";
 
+import kuboPomodoroImage from "../../assets/images/kubo-pomodoro/kubo-pomodoro.png";
+
 const Projects = () => {
   const featuredProjects = [
     {
       title: "Internal Tools Dashboard",
-      description: "A multipurpose dashboard for the university's various departments applications.",
+      description: "A multipurpose dashboard for the university's various departments applications. Modules include: User Management, Guidance Office Referrals, Medical Clinic Queue Management, Student Statistics Visualization and Reporting, and more.",
       technologies: ["React", "Node.js", "OracleSQL", "Windows Server", "NGINX", "MaterialUI", "Express"],
       gifUrl: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTI4ZmZ0NjN5c3dyb2g0aDBiZmNkaDh2anYwN2s2Z20xZHl1Nm1mayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eKABaS4ABd6SkCIDDS/giphy.gif",
       link: "https://dashboard.slu.edu.ph",
     },
+    {
+      title: "Kubo Pomodoro Timetracker",
+      description: "A pomodoro timer application built with ReactJS and Google Firebase. Features include: Pomodoro timer, Break timer, Customizable timer settings, and more.",
+      technologies: ["React", "Google Firebase", "MaterialUI"],
+      gifUrl: kuboPomodoroImage,
+      link: "https://kubo-pomodoro.web.app/",
+    }
   ];
 
   return (

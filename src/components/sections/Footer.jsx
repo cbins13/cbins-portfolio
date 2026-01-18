@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
           <div className="text-center md:text-left">
             <p className="mb-1">
-              © {currentYear} Christian B. Binayan. All rights reserved.
+              © {currentYear} Christian W. Binayan. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs">
               Last updated: {lastEdited}
@@ -23,7 +23,7 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-gray-500 text-xs">
-              Built with React, Tailwind CSS, and Vite
+              Built with React, Tailwind CSS, and Vite. Powered by Cursor AI.
             </p>
           </div>
         </div>

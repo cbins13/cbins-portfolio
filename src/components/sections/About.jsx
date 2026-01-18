@@ -1,5 +1,6 @@
 import React from "react";
 import RevealOnScroll from "../RevealOnScroll";
+import ImageCarousel from "../ImageCarousel";
 import {
   SiReact,
   SiJavascript,
@@ -16,6 +17,20 @@ import {
 } from "react-icons/si";
 
 import { FaDocker, FaCode } from "react-icons/fa";
+
+// Import capstone project images
+import capstoneImage1 from "../../assets/images/capstone/1.png";
+import capstoneImage2 from "../../assets/images/capstone/2.png";
+import capstoneImage3 from "../../assets/images/capstone/3.png";
+import capstoneImage4 from "../../assets/images/capstone/4.png";
+import capstoneImage5 from "../../assets/images/capstone/5.png";
+import capstoneImage6 from "../../assets/images/capstone/6.png";
+import capstoneImage7 from "../../assets/images/capstone/7.png";
+import capstoneImage8 from "../../assets/images/capstone/8.png";
+import capstoneImage9 from "../../assets/images/capstone/9.png";
+import capstoneImage10 from "../../assets/images/capstone/10.png";
+import capstoneImage11 from "../../assets/images/capstone/11.png";
+import capstoneImage12 from "../../assets/images/capstone/12.png";
 
 const About = () => {
   // Technology icon mapping
@@ -77,6 +92,24 @@ const About = () => {
       otherNotableTasks: ["Technical Documentation for the applications developed", "Managed student interns and their projects", "System Administration of intern projects"]
     },
     {
+      title: "Data Support Analyst",
+      company: "Giant International Software Station Inc.",
+      date: "September 2023 - January 2024",
+      description: "Resolved tasks for the client Encompass Tech, a cloud-native ERP, RAS, CRM, and eCommerce software centered around Beverage Distribution for US businesses.",
+      otherNotableTasks: ["Performed routine data integration and verification of customer records imported through native API's and Oracle Fusion Report", "Cross-referenced customer records found on the company system with business listings found in Google", "Coordinated, documented, and escalated erroneous records/anomalies imported by the native API to the local and international lead analysts", "Maintained highest employee KPI among project members from the time of employment"]
+    },
+    {
+      title: "L2 Web Applications Support",
+      company: "Cantier Systems Inc.",
+      date: "May 2023 - September 2023",
+      description: "Delivered consistent results by resolving an average of 50 tickets per month for global users from regions such as China, Taiwan, USA , Japan, Clark Philippines, and Baguio.",
+      otherNotableTasks: [
+        "Debugging of Java Spring application errors and logs integrated to production machines for Texas Instruments",
+        "Documented resolution details of tickets using Microsoft Excel, Confluence/JIRA, and Cherwell",
+        "Provided reliable text-based customer support via Microsoft Outlook and Cisco Webex, prioritizing timely communication and issue resolution"
+      ]
+    },
+    {
       title: "Junior Front-end Developer",
       company: "Code & Theory Manila (GoBeyond Studios)",
       date: "July 2022 - January 2023",
@@ -87,6 +120,34 @@ const About = () => {
       company: "Code & Theory Manila (GoBeyond Studios)",
       date: "January 2022 - May 2022",
       description: "Created a personal time tracking tool utilizing the Pomodoro Technique using ReactJS and Google Firebase",
+    },
+  ];
+
+  const education = [
+    {
+      degree: "Bachelor of Science in Information Technology",
+      university: "Saint Louis University",
+      date: "2018 - 2022",
+      achievements: ["Loyalty Awardee", "Cum Laude"],
+      capstoneProject: "EmpiTech ConTACTS - Contact Tracing Management Information System (CTMIS)",
+      images: [
+        { src: capstoneImage1, alt: "EmpiTech ConTACTS - Screenshot 1" },
+        { src: capstoneImage2, alt: "EmpiTech ConTACTS - Screenshot 2" },
+        { src: capstoneImage3, alt: "EmpiTech ConTACTS - Screenshot 3" },
+        { src: capstoneImage4, alt: "EmpiTech ConTACTS - Screenshot 4" },
+        { src: capstoneImage5, alt: "EmpiTech ConTACTS - Screenshot 5" },
+        { src: capstoneImage6, alt: "EmpiTech ConTACTS - Screenshot 6" },
+        { src: capstoneImage7, alt: "EmpiTech ConTACTS - Screenshot 7" },
+        { src: capstoneImage8, alt: "EmpiTech ConTACTS - Screenshot 8" },
+        { src: capstoneImage9, alt: "EmpiTech ConTACTS - Screenshot 9" },
+        { src: capstoneImage10, alt: "EmpiTech ConTACTS - Screenshot 10" },
+        { src: capstoneImage11, alt: "EmpiTech ConTACTS - Screenshot 11" },
+        { src: capstoneImage12, alt: "EmpiTech ConTACTS - Screenshot 12" },
+      ],
+      tools: ["000WebHost", "Namecheap", "Selenium", "k6", "TestProject", "phpMyAdmin", "wampServer64", "Jupyter Python", "Google Maps API", "Movider"], // Add tools used in capstone project
+      programmingLanguages: ["PHP", "JavaScript", "HTML", "CSS", "Python"], // Add programming languages used in capstone project
+      databases: ["MySQL"], // Add databases used in capstone project
+      description: "A web-based contact tracing management information system embedded with an IoT device for contact tracing and monitoring of establishment visitors location history and contact details. Features include web-based monitoring, QR code scanning, data visualization and reports generation, map travel history tracking, SMS blast messaging."
     },
   ];
 
@@ -211,36 +272,114 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-              <h3 className="text-xl font-bold mb-6">🎓Education</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">
-                    B.S in Information Technology
-                  </h4>
-                  <p className="text-gray-400 text-sm mb-3">
-                    Saint Louis University
-                  </p>
-                  <p className="text-gray-500 text-xs">
-                    2018 - 2022
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-white/10">
-                  <h5 className="text-sm font-semibold text-gray-300 mb-2">
-                    Achievements
-                  </h5>
-                  <ul className="list-disc list-inside text-gray-400 text-sm">
-                    <li>Loyalty Awardee</li>
-                    <li>Cum Laude</li>
-                  </ul>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 items-start">
+            <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+              <h3 className="text-xl font-bold mb-6 p-6 pb-4">🎓Education</h3>
+              <div className="px-6 pb-6">
+                {education.map((edu, index) => (
+                  <div key={index}>
+                    <h4 className="text-lg font-semibold text-white mb-2">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-gray-400 text-sm mb-1">
+                      {edu.university}
+                    </p>
+                    <p className="text-gray-500 text-xs mb-3">
+                      {edu.date}
+                    </p>
+                    {edu.achievements && edu.achievements.length > 0 && (
+                      <div className="pt-3">
+                        <h5 className="text-sm font-semibold text-gray-300 mb-2">
+                          Achievements
+                        </h5>
+                        <ul className="list-disc list-inside text-gray-400 text-sm">
+                          {edu.achievements.map((achievement, achievementIndex) => (
+                            <li key={achievementIndex}>{achievement}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {edu.capstoneProject && (
+                      <div className="pt-3">
+                        <h5 className="text-sm font-semibold text-gray-300 mb-2">
+                          Capstone Project
+                        </h5>
+                        <p className="text-gray-400 text-sm mb-3">
+                          {edu.capstoneProject}
+                        </p>
+                        <div className="mb-3">
+                          <ImageCarousel
+                            images={edu.images || []}
+                            autoPlayInterval={4000}
+                          />
+                        </div>
+                        {edu.programmingLanguages && edu.programmingLanguages.length > 0 && (
+                          <div className="mb-3">
+                            <h6 className="text-xs font-semibold text-gray-300 mb-2">
+                              Programming Languages
+                            </h6>
+                            <div className="flex flex-wrap gap-2">
+                              {edu.programmingLanguages.map((lang, langIndex) => (
+                                <span
+                                  key={langIndex}
+                                  className="bg-cyan-500/10 text-cyan-400 py-1.5 px-3 rounded-full text-xs hover:bg-cyan-500/20 hover:shadow-[0_2px_8px_rgba(34,211,238,0.2)] transition"
+                                >
+                                  {lang}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {edu.tools && edu.tools.length > 0 && (
+                          <div className="mb-3">
+                            <h6 className="text-xs font-semibold text-gray-300 mb-2">
+                              Tools
+                            </h6>
+                            <div className="flex flex-wrap gap-2">
+                              {edu.tools.map((tool, toolIndex) => (
+                                <span
+                                  key={toolIndex}
+                                  className="bg-cyan-500/10 text-cyan-400 py-1.5 px-3 rounded-full text-xs hover:bg-cyan-500/20 hover:shadow-[0_2px_8px_rgba(34,211,238,0.2)] transition"
+                                >
+                                  {tool}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {edu.databases && edu.databases.length > 0 && (
+                          <div className="mb-3">
+                            <h6 className="text-xs font-semibold text-gray-300 mb-2">
+                              Databases
+                            </h6>
+                            <div className="flex flex-wrap gap-2">
+                              {edu.databases.map((db, dbIndex) => (
+                                <span
+                                  key={dbIndex}
+                                  className="bg-cyan-500/10 text-cyan-400 py-1.5 px-3 rounded-full text-xs hover:bg-cyan-500/20 hover:shadow-[0_2px_8px_rgba(34,211,238,0.2)] transition"
+                                >
+                                  {db}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {edu.description && (
+                      <div className="pt-3">
+                        <p className="text-gray-300 text-sm text-justify">
+                          {edu.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-fuchsia-500/10 to-violet-500/10">
-              <h3 className="text-xl font-bold mb-6">💼Work Experience</h3>
-
-              <div className="space-y-6">
+            <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-fuchsia-500/10 to-violet-500/10">
+              <h3 className="text-xl font-bold mb-6 p-6 pb-4">💼Work Experience</h3>
+              <div className="px-6 pb-6 space-y-6">
                 {workExperience.map((job, index) => (
                   <div
                     key={index}
