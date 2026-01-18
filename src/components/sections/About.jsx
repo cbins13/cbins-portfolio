@@ -1,6 +1,8 @@
 import React from "react";
 import RevealOnScroll from "../RevealOnScroll";
 import ImageCarousel from "../ImageCarousel";
+import StaggerChildren from "../animations/StaggerChildren";
+import FadeInText from "../animations/FadeInText";
 import {
   SiReact,
   SiJavascript,
@@ -167,9 +169,11 @@ const About = () => {
     >
       <RevealOnScroll>
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            About Me
-          </h2>
+          <FadeInText>
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
+              About Me
+            </h2>
+          </FadeInText>
 
           <div className="rounded-xl p-8 border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-cyan-500/10">
             <h3 className="text-xl font-bold mb-4">Technologies</h3>
@@ -178,105 +182,123 @@ const About = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-blue-500/10 border border-blue-500/20">
-                <h3 className="text-xl font-bold mb-4">Frontend</h3>
-                <div className="flex flex-wrap gap-3">
-                  {frontendSkills.map((tech, index) => {
-                    const IconComponent = techIcons[tech];
-                    const iconColor = techColors[tech] || "text-blue-500";
-                    return (
-                      <div
-                        key={index}
-                        className="group relative flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-500 py-2 px-4 rounded-lg text-sm hover:bg-blue-500/20 hover:border-blue-500/40 hover:shadow-[0_2px_8px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
-                      >
-                        {IconComponent && (
-                          <IconComponent
-                            className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
-                          />
-                        )}
-                        <span className="font-medium">{tech}</span>
-                      </div>
-                    );
-                  })}
+              <RevealOnScroll delay={0.1}>
+                <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-blue-500/10 border border-blue-500/20">
+                  <h3 className="text-xl font-bold mb-4">Frontend</h3>
+                  <StaggerChildren staggerDelay={0.05}>
+                    <div className="flex flex-wrap gap-3">
+                      {frontendSkills.map((tech, index) => {
+                        const IconComponent = techIcons[tech];
+                        const iconColor = techColors[tech] || "text-blue-500";
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-500 py-2 px-4 rounded-lg text-sm hover:bg-blue-500/20 hover:border-blue-500/40 hover:shadow-[0_2px_8px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                          >
+                            {IconComponent && (
+                              <IconComponent
+                                className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
+                              />
+                            )}
+                            <span className="font-medium">{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </StaggerChildren>
                 </div>
-              </div>
+              </RevealOnScroll>
 
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-violet-500/10 border border-violet-500/20">
-                <h3 className="text-xl font-bold mb-4">Backend</h3>
-                <div className="flex flex-wrap gap-3">
-                  {backendSkills.map((tech, index) => {
-                    const IconComponent = techIcons[tech];
-                    const iconColor = techColors[tech] || "text-violet-500";
-                    return (
-                      <div
-                        key={index}
-                        className="group relative flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-500 py-2 px-4 rounded-lg text-sm hover:bg-violet-500/20 hover:border-violet-500/40 hover:shadow-[0_2px_8px_rgba(139,92,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
-                      >
-                        {IconComponent && (
-                          <IconComponent
-                            className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
-                          />
-                        )}
-                        <span className="font-medium">{tech}</span>
-                      </div>
-                    );
-                  })}
+              <RevealOnScroll delay={0.2}>
+                <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-violet-500/10 border border-violet-500/20">
+                  <h3 className="text-xl font-bold mb-4">Backend</h3>
+                  <StaggerChildren staggerDelay={0.05}>
+                    <div className="flex flex-wrap gap-3">
+                      {backendSkills.map((tech, index) => {
+                        const IconComponent = techIcons[tech];
+                        const iconColor = techColors[tech] || "text-violet-500";
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-500 py-2 px-4 rounded-lg text-sm hover:bg-violet-500/20 hover:border-violet-500/40 hover:shadow-[0_2px_8px_rgba(139,92,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                          >
+                            {IconComponent && (
+                              <IconComponent
+                                className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
+                              />
+                            )}
+                            <span className="font-medium">{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </StaggerChildren>
                 </div>
-              </div>
+              </RevealOnScroll>
 
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-emerald-500/10 border border-emerald-500/20">
-                <h3 className="text-xl font-bold mb-4">Cloud & DevOps</h3>
-                <div className="flex flex-wrap gap-3">
-                  {cloudSkills.map((tech, index) => {
-                    const IconComponent = techIcons[tech];
-                    const iconColor = techColors[tech] || "text-emerald-500";
-                    return (
-                      <div
-                        key={index}
-                        className="group relative flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 py-2 px-4 rounded-lg text-sm hover:bg-emerald-500/20 hover:border-emerald-500/40 hover:shadow-[0_2px_8px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
-                      >
-                        {IconComponent && (
-                          <IconComponent
-                            className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
-                          />
-                        )}
-                        <span className="font-medium">{tech}</span>
-                      </div>
-                    );
-                  })}
+              <RevealOnScroll delay={0.3}>
+                <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-emerald-500/10 border border-emerald-500/20">
+                  <h3 className="text-xl font-bold mb-4">Cloud & DevOps</h3>
+                  <StaggerChildren staggerDelay={0.05}>
+                    <div className="flex flex-wrap gap-3">
+                      {cloudSkills.map((tech, index) => {
+                        const IconComponent = techIcons[tech];
+                        const iconColor = techColors[tech] || "text-emerald-500";
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 py-2 px-4 rounded-lg text-sm hover:bg-emerald-500/20 hover:border-emerald-500/40 hover:shadow-[0_2px_8px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                          >
+                            {IconComponent && (
+                              <IconComponent
+                                className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
+                              />
+                            )}
+                            <span className="font-medium">{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </StaggerChildren>
                 </div>
-              </div>
+              </RevealOnScroll>
 
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-rose-500/10 border border-rose-500/20">
-                <h3 className="text-xl font-bold mb-4">AI Coding Tools</h3>
-                <div className="flex flex-wrap gap-3">
-                  {aiCoders.map((tech, index) => {
-                    const IconComponent = techIcons[tech];
-                    const iconColor = techColors[tech] || "text-rose-500";
-                    return (
-                      <div
-                        key={index}
-                        className="group relative flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 text-rose-500 py-2 px-4 rounded-lg text-sm hover:bg-rose-500/20 hover:border-rose-500/40 hover:shadow-[0_2px_8px_rgba(244,63,94,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
-                      >
-                        {IconComponent && (
-                          <IconComponent
-                            className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
-                          />
-                        )}
-                        <span className="font-medium">{tech}</span>
-                      </div>
-                    );
-                  })}
+              <RevealOnScroll delay={0.4}>
+                <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-rose-500/10 border border-rose-500/20">
+                  <h3 className="text-xl font-bold mb-4">AI Coding Tools</h3>
+                  <StaggerChildren staggerDelay={0.05}>
+                    <div className="flex flex-wrap gap-3">
+                      {aiCoders.map((tech, index) => {
+                        const IconComponent = techIcons[tech];
+                        const iconColor = techColors[tech] || "text-rose-500";
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 text-rose-500 py-2 px-4 rounded-lg text-sm hover:bg-rose-500/20 hover:border-rose-500/40 hover:shadow-[0_2px_8px_rgba(244,63,94,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                          >
+                            {IconComponent && (
+                              <IconComponent
+                                className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
+                              />
+                            )}
+                            <span className="font-medium">{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </StaggerChildren>
                 </div>
-              </div>
+              </RevealOnScroll>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 items-start">
-            <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-              <h3 className="text-xl font-bold mb-6 p-6 pb-4">🎓Education</h3>
-              <div className="px-6 pb-6">
-                {education.map((edu, index) => (
+          <StaggerChildren staggerDelay={0.15}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 items-start">
+              <RevealOnScroll delay={0.1}>
+                <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+                  <h3 className="text-xl font-bold mb-6 p-6 pb-4">🎓Education</h3>
+                  <div className="px-6 pb-6">
+                    {education.map((edu, index) => (
                   <div key={index}>
                     <h4 className="text-lg font-semibold text-white mb-2">
                       {edu.degree}
@@ -373,14 +395,17 @@ const About = () => {
                         </p>
                       </div>
                     )}
+                    </div>
+                  ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-fuchsia-500/10 to-violet-500/10">
-              <h3 className="text-xl font-bold mb-6 p-6 pb-4">💼Work Experience</h3>
-              <div className="px-6 pb-6 space-y-6">
-                {workExperience.map((job, index) => (
+                </div>
+              </RevealOnScroll>
+              <RevealOnScroll delay={0.2}>
+                <div className="rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-fuchsia-500/10 to-violet-500/10">
+                  <h3 className="text-xl font-bold mb-6 p-6 pb-4">💼Work Experience</h3>
+                  <StaggerChildren staggerDelay={0.1}>
+                    <div className="px-6 pb-6 space-y-6">
+                      {workExperience.map((job, index) => (
                   <div
                     key={index}
                     className={index > 0 ? "pt-4 border-t border-white/10" : ""}
@@ -408,19 +433,24 @@ const About = () => {
                           ))}
                         </ul>
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      )}
+                    </div>
+                      ))}
+                    </div>
+                  </StaggerChildren>
+                </div>
+              </RevealOnScroll>
             </div>
-          </div>
+          </StaggerChildren>
 
-          <div className="mt-8">
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-amber-500/10 to-orange-500/10">
-              <h3 className="text-xl font-bold mb-6">🏆Certifications</h3>
+          <RevealOnScroll delay={0.3}>
+            <div className="mt-8">
+              <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all bg-gradient-to-br from-amber-500/10 to-orange-500/10">
+                <h3 className="text-xl font-bold mb-6">🏆Certifications</h3>
 
-              <div className="space-y-6">
-                {certifications.map((cert, index) => (
+                <StaggerChildren staggerDelay={0.1}>
+                  <div className="space-y-6">
+                    {certifications.map((cert, index) => (
                   <div
                     key={index}
                     className={index > 0 ? "pt-4 border-t border-white/10" : ""}
@@ -437,11 +467,13 @@ const About = () => {
                     <ul className="list-disc list-inside text-gray-400 text-xs">
                       <li>Credential Reference: <a href={cert.credentialReferenceURL} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">{cert.credentialReferenceURL}</a></li>
                     </ul>
+                    </div>
+                    ))}
                   </div>
-                ))}
+                </StaggerChildren>
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </RevealOnScroll>
     </section>
