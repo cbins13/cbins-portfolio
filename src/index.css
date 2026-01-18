@@ -37,6 +37,53 @@ body {
   .animate-loading-bar {
     animation: loading 0.8s ease infinite;
   }
+
+  /* Browser compatibility: Add webkit prefix for bg-clip-text */
+  /* This ensures gradient text works in Firefox, Safari, and Brave */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  /* Ensure gradient text displays correctly in all browsers */
+  /* Apply transparent fill when bg-clip-text is used with text-transparent */
+  .bg-clip-text.text-transparent,
+  .text-transparent.bg-clip-text {
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  /* Fix for Shuffle component: Apply gradient to split text characters */
+  /* GSAP SplitText creates individual character elements - they need gradient applied */
+  /* Target the parent with gradient classes and apply to all child characters */
+  h1.bg-gradient-to-r.bg-clip-text .shuffle-char,
+  h1.bg-gradient-to-r.bg-clip-text .shuffle-char[data-orig="1"],
+  .bg-gradient-to-r.bg-clip-text .shuffle-char,
+  .bg-gradient-to-r.bg-clip-text .shuffle-char[data-orig="1"] {
+    background-image: linear-gradient(to right, #3b82f6, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  .bg-gradient-to-br.bg-clip-text .shuffle-char,
+  .bg-gradient-to-br.bg-clip-text .shuffle-char[data-orig="1"] {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  .bg-gradient-to-b.bg-clip-text .shuffle-char,
+  .bg-gradient-to-b.bg-clip-text .shuffle-char[data-orig="1"] {
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }
 
 

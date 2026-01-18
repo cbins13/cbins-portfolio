@@ -5,5 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/cbins-portfolio"
+  base: "/cbins-portfolio",
+  build: {
+    // Ensure CSS is properly extracted and included
+    cssCodeSplit: false,
+  }
 })

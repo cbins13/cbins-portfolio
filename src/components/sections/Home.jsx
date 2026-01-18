@@ -62,10 +62,10 @@ const Home = () => {
                 animationMode="evenodd"
                 stagger={0.03}
                 threshold={0.1}
-                triggerOnce={true}
+                triggerOnce={false}
                 triggerOnHover={true}
                 respectReducedMotion={true}
-                className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r bg-clip-text from-blue-500 to-cyan-400 leading-right text-transparent"
+                className="text-5xl md:text-7xl font-bold mb-6 text-white leading-right"
                 tag="h1"
                 textAlign="center"
               />
