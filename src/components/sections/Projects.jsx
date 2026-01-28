@@ -8,6 +8,14 @@ import kuboPomodoroImage from "../../assets/images/kubo-pomodoro/kubo-pomodoro.p
 const Projects = () => {
   const featuredProjects = [
     {
+      title: "Savvi - Simple Personal Finance Tracker",
+      description: "Savvi is a simple personal finance tracker built using the MERN stack, deployed on Render. Feature include: Income and Expense Tracking, ",
+      technologies: ["React", "Node.js", "ExpressJS", "Render", "TanStack Router", "TailwindCSS", "GoogleOAuth2.0"],
+      gifUrl: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN21sMnUwNjB4bjdibjUzNGUwcWJ0MG1odWthcDZ1bTl0M2txYnh4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XxfW6cothakxCXUQtE/giphy.gif",
+      github: "https://github.com/cbins13/savvi-ph",
+      link: "https://savvi-ph-h65u.onrender.com/",
+    },
+    {
       title: "Internal Tools Dashboard",
       description: "A multipurpose dashboard for the university's various departments applications. Modules include: User Management, Guidance Office Referrals, Medical Clinic Queue Management, Student Statistics Visualization and Reporting, and more.",
       technologies: ["React", "Node.js", "OracleSQL", "Windows Server", "NGINX", "MaterialUI", "Express"],
@@ -88,32 +96,54 @@ const Projects = () => {
                         ))}
                       </div>
 
-                      {project.link && typeof project.link === 'string' && project.link.trim() !== "" && (
-                        <div className="flex justify-start items-center">
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 text-base font-medium"
-                          >
-                            <span>View Project</span>
-                            <svg
-                              className="w-5 h-5"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
+                      {(project.link && typeof project.link === "string" && project.link.trim() !== "") ||
+                      (project.github && typeof project.github === "string" && project.github.trim() !== "") ? (
+                        <div className="flex justify-start items-center gap-4">
+                          {project.link && typeof project.link === "string" && project.link.trim() !== "" && (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 text-base font-medium"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              />
-                            </svg>
-                          </a>
+                              <span>View Project</span>
+                              <svg
+                                className="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                />
+                              </svg>
+                            </a>
+                          )}
+
+                          {project.github && typeof project.github === "string" && project.github.trim() !== "" && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 text-base font-medium"
+                            >
+                              <span>View GitHub</span>
+                              <svg
+                                className="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M12 .5C5.648.5.5 5.648.5 12c0 5.088 3.292 9.395 7.868 10.916.575.108.785-.247.785-.553 0-.273-.01-1.178-.016-2.14-3.199.695-3.875-1.364-3.875-1.364-.523-1.328-1.277-1.681-1.277-1.681-1.044-.714.079-.699.079-.699 1.155.081 1.763 1.187 1.763 1.187 1.026 1.758 2.693 1.25 3.35.956.104-.744.402-1.25.73-1.538-2.553-.291-5.237-1.277-5.237-5.683 0-1.255.45-2.282 1.187-3.087-.119-.29-.515-1.46.112-3.046 0 0 .967-.31 3.169 1.18a11.02 11.02 0 0 1 2.886-.388c.978.004 1.963.132 2.885.388 2.203-1.49 3.168-1.18 3.168-1.18.628 1.586.232 2.756.114 3.046.74.805 1.186 1.832 1.186 3.087 0 4.418-2.69 5.389-5.253 5.675.414.356.783 1.06.783 2.137 0 1.543-.014 2.783-.014 3.162 0 .308.207.667.79.553C20.21 21.39 23.5 17.084 23.5 12 23.5 5.648 18.352.5 12 .5Z" />
+                              </svg>
+                            </a>
+                          )}
                         </div>
-                      )}
+                      ) : null}
                     </div>
                 </HoverCard>
               </RevealOnScroll>
