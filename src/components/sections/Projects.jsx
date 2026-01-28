@@ -14,6 +14,7 @@ const Projects = () => {
       gifUrl: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN21sMnUwNjB4bjdibjUzNGUwcWJ0MG1odWthcDZ1bTl0M2txYnh4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XxfW6cothakxCXUQtE/giphy.gif",
       github: "https://github.com/cbins13/savvi-ph",
       link: "https://savvi-ph-h65u.onrender.com/",
+      youtubeId: "DcckwO3TJCo?si=Y2wjJROPwE7lptsl",
     },
     {
       title: "Internal Tools Dashboard",
@@ -52,7 +53,18 @@ const Projects = () => {
                       <h3 className="text-2xl font-bold mb-6">{project.title}</h3>
                       
                       <div className="mb-6">
-                        {project.gifUrl ? (
+                        {project.youtubeId ? (
+                          <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
+                            <iframe
+                              src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                              title={`${project.title} demo video`}
+                              className="w-full h-full"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                            />
+                          </div>
+                        ) : project.gifUrl ? (
                           <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
                             <img
                               src={project.gifUrl}
@@ -77,8 +89,10 @@ const Projects = () => {
                                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                                 />
                               </svg>
-                              <p className="text-gray-400 text-sm">GIF Demo Placeholder</p>
-                              <p className="text-gray-500 text-xs mt-1">Add gifUrl to project data</p>
+                              <p className="text-gray-400 text-sm">GIF / Video Placeholder</p>
+                              <p className="text-gray-500 text-xs mt-1">
+                                Add youtubeId or gifUrl to project data
+                              </p>
                             </div>
                           </div>
                         )}
