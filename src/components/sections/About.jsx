@@ -18,7 +18,7 @@ import {
   SiMongodb,
 } from "react-icons/si";
 
-import { FaDocker, FaCode } from "react-icons/fa";
+import { FaDocker, FaCode, FaFigma } from "react-icons/fa";
 
 // Import capstone project images
 import capstoneImage1 from "../../assets/images/capstone/1.png";
@@ -51,6 +51,7 @@ const About = () => {
     Cursor: FaCode,
     ChatGPT: SiOpenai,
     Copilot: SiGithub,
+    Figma: FaFigma,
   };
 
   // Technology color mapping for better visual distinction
@@ -69,6 +70,7 @@ const About = () => {
     Cursor: "text-purple-400",
     ChatGPT: "text-green-400",
     Copilot: "text-gray-300",
+    Figma: "text-purple-500",
   };
 
   const frontendSkills = [
@@ -84,6 +86,8 @@ const About = () => {
   const cloudSkills = ["Docker", "NGINX"];
 
   const aiCoders = ["Cursor", "ChatGPT", "Copilot"];
+
+  const designTools = ["Figma"];
 
   const workExperience = [
     {
@@ -276,6 +280,33 @@ const About = () => {
                             key={index}
                             className="group relative flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 text-rose-500 py-2 px-4 rounded-lg text-sm hover:bg-rose-500/20 hover:border-rose-500/40 hover:shadow-[0_2px_8px_rgba(244,63,94,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                           >
+                            {IconComponent && (
+                              <IconComponent
+                                className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}
+                              />
+                            )}
+                            <span className="font-medium">{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </StaggerChildren>
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={0.4}>
+                <div className="rounded-xl p-6 hover:-translate-y-1 transition-all bg-purple-500/10 border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4">Design Tools</h3>
+                  <StaggerChildren staggerDelay={0.05}>
+                    <div className="flex flex-wrap gap-3">
+                      {designTools.map((tech, index) => {
+                        const IconComponent = techIcons[tech];
+                        const iconColor = techColors[tech] || "text-purple-500";
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-500 py-2 px-4 rounded-lg text-sm hover:bg-purple-500/20 hover:border-purple-500/40 hover:shadow-[0_2px_8px_rgba(139,92,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                          >     
                             {IconComponent && (
                               <IconComponent
                                 className={`w-5 h-5 ${iconColor} group-hover:scale-110 transition-transform duration-200`}

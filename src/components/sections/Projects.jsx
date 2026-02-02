@@ -1,9 +1,137 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import RevealOnScroll from "../RevealOnScroll";
 import HoverCard from "../animations/HoverCard";
 import FadeInText from "../animations/FadeInText";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import homepageImage from "../../assets/images/twosixhundred/Homepage.png";
+import aboutUsImage from "../../assets/images/twosixhundred/Our Story.png";
+import shopImage from "../../assets/images/twosixhundred/Shop.png";
 
 import kuboPomodoroImage from "../../assets/images/kubo-pomodoro/kubo-pomodoro.png";
+
+const ProjectImageCarousel = ({ images, title }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" || event.key === "Esc") {
+        setIsModalOpen(false);
+      } else if (event.key === "ArrowRight") {
+        setActiveIndex((prev) => (prev + 1) % images.length);
+      } else if (event.key === "ArrowLeft") {
+        setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
+
+  if (!images || images.length === 0) {
+    return null;
+  }
+
+  const modal = isModalOpen
+    ? createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative w-full h-full flex items-center justify-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 text-white hover:text-gray-300 text-3xl font-light"
+              aria-label="Close image"
+            >
+              ×
+            </button>
+
+            {/* Previous control */}
+            <button
+              type="button"
+              onClick={() =>
+                setActiveIndex(
+                  (prev) => (prev - 1 + images.length) % images.length
+                )
+              }
+              className="absolute left-4 md:left-8 text-white/80 hover:text-white text-4xl md:text-5xl px-2 md:px-3 select-none"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+
+            {/* Next control */}
+            <button
+              type="button"
+              onClick={() =>
+                setActiveIndex((prev) => (prev + 1) % images.length)
+              }
+              className="absolute right-4 md:right-8 text-white/80 hover:text-white text-4xl md:text-5xl px-2 md:px-3 select-none"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+
+            {/* Image container */}
+            <div className="max-w-[95vw] max-h-[90vh] flex items-center justify-center">
+              <img
+                src={images[activeIndex].src}
+                alt={
+                  images[activeIndex].alt ||
+                  `${title} image ${activeIndex + 1}`
+                }
+                className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>,
+        document.body
+      )
+    : null;
+
+  return (
+    <>
+      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop
+          showIndicators
+          showArrows
+          swipeable
+          emulateTouch
+          selectedItem={activeIndex}
+          onChange={(index) => setActiveIndex(index)}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              onClick={() => setIsModalOpen(true)}
+              className="cursor-zoom-in"
+            >
+              <img
+                src={image.src}
+                alt={image.alt || `${title} image ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+      {modal}
+    </>
+  );
+};
 
 const Projects = () => {
   const featuredProjects = [
@@ -29,6 +157,20 @@ const Projects = () => {
       technologies: ["React", "Google Firebase", "MaterialUI"],
       gifUrl: kuboPomodoroImage,
       link: "https://kubo-pomodoro.web.app/",
+    },
+    {
+      title: "Twosixhundred - Figma Website Design",
+      description: "My first website design project, built using Figma.",
+      technologies: ["Figma"],
+      // TODO: Add your Twosixhundred showcase images here in the format:
+      // carouselImages: [
+      //   { src: twosixhundredImage1, alt: "Twosixhundred homepage" },
+      //   { src: twosixhundredImage2, alt: "Twosixhundred inner page" },
+      // ],
+      carouselImages: [{src: homepageImage, alt: "Twosixhundred homepage"},
+        {src: aboutUsImage, alt: "Twosixhundred about us page"},
+        {src: shopImage, alt: "Twosixhundred shop page"},
+      ],
     }
   ];
 
@@ -53,7 +195,12 @@ const Projects = () => {
                       <h3 className="text-2xl font-bold mb-6">{project.title}</h3>
                       
                       <div className="mb-6">
-                        {project.youtubeId ? (
+                        {project.carouselImages && project.carouselImages.length > 0 ? (
+                          <ProjectImageCarousel
+                            images={project.carouselImages}
+                            title={project.title}
+                          />
+                        ) : project.youtubeId ? (
                           <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
                             <iframe
                               src={`https://www.youtube.com/embed/${project.youtubeId}`}
